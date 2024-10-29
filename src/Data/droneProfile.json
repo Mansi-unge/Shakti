@@ -1,0 +1,50 @@
+[
+    {
+      "droneDet": [
+        { "droneModel": "Arjuna" },
+        { "manufacture": "Arjuna" },
+        { "droneSerialNumber": "Arjuna" },
+        { "type": "Arjuna" }
+      ]
+    },
+    {
+      "usages": [
+        { "application": "Arjuna" },
+        { "operationalArea": "Arjuna" },
+        { "controlRange": "Arjuna" },
+        { "gpsPositioning": "Arjuna" },
+        { "weatherResistance": "Arjuna" }
+      ]
+    },
+    {
+      "purchase": [
+        { "owner": "Arjuna" },
+        { "purchaseDate": "Arjuna" },
+        { "droneSerialNumber": "Arjuna" },
+        { "vendor": "Arjuna" },
+        { "warranty": "Arjuna" },
+        { "maintenanceSchedule": "Arjuna" }
+      ]
+    },
+    {
+      "specification": [
+        { "maximumTakeOffWeight": "Arjuna" },
+        { "payloadCapacity": "Arjuna" },
+        { "spraySystem": "Arjuna" },
+        { "sprayWidth": "Arjuna" },
+        { "batteryCapacity": "Arjuna" },
+        { "numberOfBatteries": "Arjuna" },
+        { "flightTimePerBattery": "Arjuna" },
+        { "chargingTimePerBattery": "Arjuna" }
+      ]
+    },
+    {
+      "pilotInfo": [
+        { "pilotName": "Arjuna" },
+        { "pilotCertificationNumber": "Arjuna" },
+        { "trainingLevel": "Arjuna" },
+        { "insuranceCoverage": "Arjuna" }
+      ]
+    }
+  ]
+  
