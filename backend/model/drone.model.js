@@ -1,4 +1,6 @@
 const mongoose = require("mongoose");
+const { unlink } = require("../routes/droneRoutes");
+
 
 const droneProfileSchema = new mongoose.Schema(
   {
@@ -14,7 +16,7 @@ const droneProfileSchema = new mongoose.Schema(
       location: { type: String, required: true },
       phone: { type: String, required: true },
       purchaseDate: { type: String, required: true },
-      droneSerialNumber: { type: String, required: true },
+      droneSerialNumber: { type: String, required: true},
       vendor: { type: String, required: true },
       warranty: { type: String, required: true }, // Warranty details
       maintenanceSchedule: { type: String, required: true }, // Maintenance schedule details
@@ -22,7 +24,7 @@ const droneProfileSchema = new mongoose.Schema(
     droneDetail: {
       droneModel: { type: String, required: true },
       manufacture: { type: String, required: true },
-      droneSerialNumber: { type: String, required: true },
+      droneSerialNumber: { type: String, required: true},
       type: { type: String, required: true }, // Type of drone (e.g., commercial, agricultural)
     },
     specification: {
