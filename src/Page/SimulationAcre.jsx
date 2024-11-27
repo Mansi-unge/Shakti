@@ -7,6 +7,8 @@ import Logo from "../images/prym_logo.png";
 import { IoArrowBackCircleSharp, IoInformationCircle } from "react-icons/io5";
 import { Link, useNavigate } from "react-router-dom";
 import { IoArrowForwardCircle } from "react-icons/io5";
+import DroneImg from "../images/droneimg.png"
+import Map from "../component/Map";
 
 const SimulationAcre = () => {
   const [droneInfo, setDroneInfo] = useState(null);
@@ -206,7 +208,7 @@ const SimulationAcre = () => {
         <div className="heading text-lg text-blue-400 drop-shadow-md font-semibold sm:p-2">
           Drone Details
         </div>
-        {!loading ? (
+        {/* {!loading ? (
           <div className="Info p-2  sm:pl-4 bg-blue-30 gap-6 flex-wrap flex justify-start items-center">
             {Object.entries(droneInfo.droneDetail).map(([key, value]) => (
               <div className="dInfo bg-transparent flex justify-start items-center gap-2 p-1.5 shadow-md w-fit px-2">
@@ -219,7 +221,7 @@ const SimulationAcre = () => {
           <h1 className="text-gray-400 opacity-90 font-medium p-2">
             Loading....
           </h1>
-        )}
+        )} */}
         {/* drone info end  */}
 
         {/* simulation start */}
@@ -228,12 +230,17 @@ const SimulationAcre = () => {
         </div>
         <div className="simulationScreen h-[80vh] w-[100%] border border-green-300 rounded-lg mt-4 relative z-50">
           {simulationLoad ? (
-            <div className="Simulation_img1 w-[100%] h-[100%]">
-              <img
+            <div className=" w-[100%] h-[100%] overflow-hidden">
+              {/* field img */}
+             <Map/>
+
+              {/* <img
                 className="w-[100%] h-[100%] object-cover bg-center rounded-lg"
                 src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgBES1z_ubDCjF8pQm28RDfJZBNRRSwc_dOtCorSauWvZmxro-yOensPCysyNcEtqeEVp8VBj4-eGbRszLwLbP6gTy0nnEDBoQEByY9oGcudvb-VGrxqWU9ckgmDAGrcVQr5eXxTgecSDWX/s1600/Farm+plan+map+from+drone.jpg"
                 alt="comming "
-              />
+              /> */}
+              {/* drone img  */}
+              {/* <img src={DroneImg} alt="" className="absolute bottom-[5%] left-[22%] h-[70px] " /> */}
             </div>
           ) : (
             <div className="loading">Loading..</div>

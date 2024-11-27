@@ -139,7 +139,7 @@ const FlyingDrone = () => {
                 >
                   <th
                     scope="row"
-                    class="px-6 py-2 font-medium text-blue-400 dark:text-white"
+                    class="px-6 py-2 font-medium text-blue-400 "
                   >
                     {item.droneDetail.droneSerialNumber}
                   </th>

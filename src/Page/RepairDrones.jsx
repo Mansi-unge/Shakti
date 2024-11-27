@@ -33,6 +33,7 @@ const RepairDrones = () => {
     fetchDroneInfo();
   }, []);
 
+  
   return (
     <div className="RepairDroneswrapper bgDesign h-[100vh] w-[100vw] overflow-hidden relative ">
       {/* // Add drone modal  HIDE & SHOW */}
@@ -139,7 +140,7 @@ const RepairDrones = () => {
                 >
                   <th
                     scope="row"
-                    class="px-6 py-2 font-medium text-red-400 dark:text-white"
+                    class="px-6 py-2 font-medium text-red-400 "
                   >
                     {item.droneDetail.droneSerialNumber}
                   </th>

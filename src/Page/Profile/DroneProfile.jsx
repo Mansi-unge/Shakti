@@ -23,7 +23,8 @@ const DroneProfile = () => {
   const [allowEdit, setAllowEdit] = useState(false);
   const [isChange, setIsChange] = useState(false);
   const location = useLocation();
-  const id = location.pathname.split(":")[1];
+  const id = location.pathname.split("/")[2];
+  console.log("the dtrone id is here ", id)
 
   const [droneInfo, setDroneInfo] = useState({
     usageDetail: {
@@ -174,7 +175,7 @@ const DroneProfile = () => {
                     : ""
                 }
                 ${
-                  droneInfo.Dstatus == "Reapair"
+                  droneInfo.Dstatus == "Repair"
                     ? "text-yellow-400 border-yellow-400"
                     : ""
                 }
@@ -195,7 +196,7 @@ const DroneProfile = () => {
                   <span
                     class={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-75
                      ${droneInfo.Dstatus == "Active" ? "bg-green-400" : ""}
-                ${droneInfo.Dstatus == "Reapair" ? "bg-yellow-400" : ""}
+                ${droneInfo.Dstatus == "Repair" ? "bg-yellow-400" : ""}
                 ${droneInfo.Dstatus == "Inactive" ? "bg-red-400" : ""}
                 ${droneInfo.Dstatus == "Flying" ? "bg-blue-400" : ""}
                     `}
@@ -203,7 +204,7 @@ const DroneProfile = () => {
                   <span
                     class={`relative inline-flex rounded-full h-3 w-3
                      ${droneInfo.Dstatus == "Active" ? "bg-green-300" : ""}
-                ${droneInfo.Dstatus == "Reapair" ? "bg-yellow-300" : ""}
+                ${droneInfo.Dstatus == "Repair" ? "bg-yellow-300" : ""}
                 ${droneInfo.Dstatus == "Inactive" ? "bg-red-300" : ""}
                 ${droneInfo.Dstatus == "Flying" ? "bg-blue-300" : ""}
                     `}
@@ -243,6 +244,7 @@ const DroneProfile = () => {
           Drone <span className="text-white ">Profile</span>{" "}
         </h1>
       </div>
+      
 
       {/* Profile Glass Start  */}
       {!loading ? (

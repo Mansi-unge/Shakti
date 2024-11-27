@@ -58,6 +58,8 @@ const AllDrones = () => {
     const matchesFilter = filter === "All" || drone.Dstatus === filter;
     return matchesSearchQuery && matchesFilter;
   });
+  console.log("all drone", droneAllData);
+  console.log("all filtered data", filteredDrones);
 
   const handleFilterChange = (e) => {
     setFilter(e.target.value);
@@ -207,11 +209,12 @@ const AllDrones = () => {
                           : ""
                       }
                       ${
-                        item.Dstatus == "Reapair"
+                        item.Dstatus == "Repair"
                           ? "bg-[#c0b516] border-[#faf284] hover:bg-[#c0b516b9]"
                           : ""
                       }
                       ${
+
                         item.Dstatus == "Inactive"
                           ? "bg-[#c04c16fa] border-[#faa584] hover:bg-[#c03816b9]"
                           : ""

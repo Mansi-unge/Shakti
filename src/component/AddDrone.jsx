@@ -57,7 +57,7 @@ const AddDrone = ({ setClose, close }) => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        `http://localhost:4000/createdrone`,
+        `http://localhost:8000/createdrone`,
         droneInfo,
         {
           headers: {
@@ -426,9 +426,9 @@ const AddDrone = ({ setClose, close }) => {
                           Inactive
                         </span>
                       )}
-                      {droneInfo.Dstatus == "Reapair" && (
+                      {droneInfo.Dstatus == "repair" && (
                         <span className="text-yellow-400 drop-shadow-md">
-                          Reapair
+                          repair
                         </span>
                       )}
                       {droneInfo.Dstatus == "Flying" && (
@@ -450,7 +450,7 @@ const AddDrone = ({ setClose, close }) => {
                       </option>
                       <option value="Active"> Active </option>
                       <option value="Inactive"> Inactive </option>
-                      <option value="Reapair"> Reapair </option>
+                      <option value="repair"> repair </option>
                       <option value="Flying"> Flying </option>
                     </select>
                   </div>

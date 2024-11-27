@@ -1,89 +1,50 @@
 import React from "react";
-import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
-import "react-circular-progressbar/dist/styles.css";
 import ReactSpeedometer from "react-d3-speedometer";
 
-const DroneSensorInfo = ({title,valueText}) => {
+const DroneSensorInfo = ({ title, valueText, unit }) => {
+  // Configure the speedometer based on the title
+  const getSpeedometerConfig = (title) => {
+    switch (title) {
+      case "Altitude":
+        return { maxValue: 10000 }; // Altitude can go up to 10,000 meters
+      case "Temperature":
+        return { maxValue: 100 }; // Temperature range in Celsius
+      case "Pressure":
+        return { maxValue: 1200 }; // Atmospheric pressure range in hPa
+      case "Pitch":
+      case "Roll":
+      case "Yaw":
+        return { maxValue: 360 }; // Rotation angles are from 0 to 360°
+      default:
+        return { maxValue: 100 }; // Default max value
+    }
+  };
+
+  const config = getSpeedometerConfig(title); // Fetch config for each title
+
+  // Ensure valueText is converted to a number and defaults to 0 if NaN
+  const numericValue = Number(valueText) || 0;
+
   return (
-    <div className=" flex flex-col justify-around items-center p-2 gap-4 rounded-md py-4 hover:scale-105 transition-all duration-200">
-      <div className="top ">
-        {/* <CircularProgressbar className="w-20 h-20"
-          value={12}
-          maxValue={32}
-          text={`${Math.round((12 / 32) * 100)}%`}
-          styles={buildStyles({
-            rotation: 0.75, // Rotate 270 degrees to start from the left bottom corner
-            strokeLinecap: 'butt', // No rounded line edges
-            textSize: '16px',
-            pathTransitionDuration: 0.5,
-            pathColor: `rgba(62, 152, 199, ${12 / 21})`,
-            textColor: '#333',
-            trailColor: '#d6d6d6',
-            backgroundColor: '#3e98c7',
-            background:"blue",
-            strokeDasharray: '1, 1',
-            trailPathClassName: 'circular-progressbar-trail',
-          })}
-        /> */}
-        {/* <ReactSpeedometer
-          className="w-20 h-20"
-                  width={500}
-
-          maxValue={500}
-          value={473}
-          needleColor="red"
-          startColor="green"
-          segments={10}
-          endColor="blue"
-        /> */}
-         <ReactSpeedometer
-        width={100}
-        height={50}
-        needleHeightRatio={0.4}
-        // value={232}
-        customSegmentLabels={[
-          {
-            text: 'Very Bad',
-            position: 'INSIDE',
-            color: '#555',
-            fontSize:"6px"
-          },
-          {
-            // text: 'Bad',
-            position: 'INSIDE',
-            color: '#555',
-            fontSize:"6px"
-
-          },
-          {
-            // text: 'Ok',
-            position: 'INSIDE',
-            color: '#555',
-            fontSize: '6px',
-          },
-          {
-            // text: 'Good',
-            position: 'INSIDE',
-            color: '#555',
-            fontSize:"6px"
-          },
-          {
-            // text: 'Very Good',
-            position: 'INSIDE',
-            color: '#555',
-            fontSize:"6px"
-          },
-        ]}
-        ringWidth={8}
-        needleTransitionDuration={3333}
-        needleTransition="easeElastic"
-        needleColor={'#90f2ff'}
-        textColor={'#d8dee9'}
-      />
+    <div className="flex flex-col justify-around items-center p-2 rounded-md py-2 hover:scale-105 transition-all duration-200">
+      <div className="text-[15px] font-bold text-black">{title}</div>
+      <div className="w-[120px] h-[70px]">
+        <ReactSpeedometer
+          value={numericValue} // Ensure value is a valid number
+          maxValue={config.maxValue} // Use the maxValue based on the title
+          width={120} // Adjust the size of the speedometer
+          height={70}
+          needleHeightRatio={0.7}
+          ringWidth={10} // Set the thickness of the ring
+          needleColor={"#000"} // Set the needle color
+          startColor={"#00ff00"} // Green for the start
+          endColor={"#ff0000"} // Red for the end
+          segments={5} // Divide the speedometer into 5 segments
+          textColor={"transparent"} // Hide the value text inside the speedometer
+        />
       </div>
-      <div className="bottom text-sm font-bold drop-shadow-md text-blue-300">
-        {/* <p> Temp </p> */}
-        {/* <p>Value</p> */}
+      <div className="text-[13px] font-semibold text-gray-600">
+        {`${numericValue} ${unit}`} {/* Display the value next to the speedometer */}
       </div>
     </div>
   );

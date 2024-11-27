@@ -15,13 +15,15 @@ import { IoIosArrowBack } from "react-icons/io";
 import { IoIosArrowForward } from "react-icons/io";
 import { FaArrowRight } from "react-icons/fa";
 import Logout from "../component/buttons/Logout";
+import SensorPanel from "../component/SensorData";
+// import DroneSimulation from "../component/DroneSimulation";
 
 const ActiveDrone = () => {
   const [isAnimationComplete, setIsAnimationComplete] = useState(false);
   const [pilotInfo, setPilotInfo] = useState(false);
   const [profileInfo, setProfileInfo] = useState(false);
   const [flightLog, setFlightLog] = useState(false);
-  const [leftPanel, setLeftPanel] = useState(true);
+ 
 
   const [status, setStatus] = useState("");
 
@@ -227,31 +229,15 @@ const ActiveDrone = () => {
         {/* Flying Drone Start  */}
         {/* options menu start    */}
       {/* { status == "flying" && */}
-      <> <div onClick={()=>setLeftPanel(!leftPanel)} className="cursor-pointer z-30 w-fit relative backdrop-blur-md bg-[#0000002c] text-lg text-center p-2 font-semibold px-2 text-white drop-shadow-[1px_1px_1px_black] ease-linear duration-200  rounded-e-xl hover:scale-105 my-2">
-       { leftPanel   ? <IoIosArrowBack fontSize={"1.4rem"} /> : <IoIosArrowForward fontSize={"1.4rem"}/> }
-              </div>
-        <div className={`Sensor_Info absolute bg-[#0000005e shadow-md text-black backdrop-blur-md z-20 left-2 top-[20%] rounded-es-lg max-h-[480px] overflow-y-auto ${leftPanel ? "leftPanelOpen" : "leftPanelClose"}`}>
-          <div className="sensroInfo flex justify-center items-center flex-wrap max-w-[240px] ">
-            <DroneSensorInfo title={"ALTITUDE 20m"} valueText={"20m"} />
-            <DroneSensorInfo
-              title={"VERTICAL SPEED "}
-              valueText={"2.1 m/sec"}
-            />
-            <DroneSensorInfo title={" GROUND SPEED "} valueText={"8 m/sec"} />
-            <DroneSensorInfo title={"TEMPERATURE "} valueText={"28 C"} />
-            <DroneSensorInfo title={" GROUND SPEED "} valueText={"8 m/sec"} />
-            <DroneSensorInfo title={"TEMPERATURE "} valueText={"28 C"} />
-            <DroneSensorInfo title={" GROUND SPEED "} valueText={"8 m/sec"} />
-            <DroneSensorInfo title={"TEMPERATURE "} valueText={"28 C"} />
 
-          </div>
-        </div></>
+     <SensorPanel/>
+    
         {/* } */}
 
         {/* weather start  */}
         <div className="info p-5 text-black flex justify-around items-center gap-4 absolute mt-auto z-20 left-2 bottom-2">
           {/* Drone status start              */}
-          <div className="status w-[250px] h-[250px] p-1.5 rounded-md backdrop-blur-md border">
+          <div className="status max-w-[180px] max-h-[180px]  2xl:w-[250px] 2xl:h-[250px] p-1.5 rounded-md backdrop-blur-md border">
             <div className="heading flex justify-between items-center">
               <h1 className="font-semibold">Status</h1>
               <h1 className="font-semibold drop-shadow-[1px_1px_1px_black] text-lg text-green-300">
@@ -270,9 +256,11 @@ const ActiveDrone = () => {
                   autoplay={true} // Automatically play the animation
                   onComplete={() => setIsAnimationComplete(true)}
                 />
+               
               )}
             </div>
           </div>
+               
           {/* other droe info start  */}
           <div className="others  flex justify-center items-center gap-8 mt-auto">
             {/* btn 1  */}

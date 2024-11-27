@@ -7,7 +7,7 @@ const Footer = () => {
   return (
    
 
-<footer class="bg-[#0000003b]  backdrop-blur-md mt-24">
+<footer class="bg-[#d6d1d13b]  backdrop-blur-md mt-24">
     <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
         <div class="md:flex md:justify-between">
           <div class="mb-6 md:mb-0">
